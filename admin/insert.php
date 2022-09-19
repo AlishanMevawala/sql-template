@@ -49,6 +49,23 @@ include ('../inc/header.php');
     <?php if (isset($validation)): ?>
         <div class="validation"><?php echo $validation; ?></div>
     <?php endif; ?>
+
+    <label for="category">Category</label>
+    <select name="category" id="category">
+        <option value="">Please select a category</option>
+        <?php
+            $cat_sql = "SELECT * From categories ORDER BY category_name ASC";
+            // procdural method
+            // $cat_result = mysqli_query($conn, $cat_sql);
+            // object oriented method (preffered)
+            $cat_result = $conn->query($cat_sql); 
+            if (mysqli_num_rows($cat_result) > 0) {
+                while ($row = mysqli_fetch_assoc($cat_result)) {
+                    $cat_id = $row['category_id'];
+                }
+            }
+        ?>
+    </select>
     
     <input type="submit" value="submit" name="submit">
 </form>

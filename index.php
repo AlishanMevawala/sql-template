@@ -4,6 +4,8 @@
 
 <?php 
 
+echo "a change has been made";
+
 $sql = "SELECT column_names FROM table ORDER BY column DESC/ASC";
 
 $result = $conn->query($sql);
